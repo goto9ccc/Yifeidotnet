@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Yifei.Framework;
 using Yifei.Services.User;
 
 namespace YifeiMvc.Controllers
@@ -24,7 +25,10 @@ namespace YifeiMvc.Controllers
         {
             if (userService.Login(username,password))
             {
+                Session.Add("username", username);
+                Session.Add("userid", username);
                 Response.Write("<Script>alert('正确');</Script>");
+                return RedirectToAction("Logined");
             }
             else
             {
@@ -33,5 +37,13 @@ namespace YifeiMvc.Controllers
 
             return View();
         }
+
+
+        [Auth]
+        public ActionResult Logined()
+        {
+            return View();
+        }
+
     }
 }

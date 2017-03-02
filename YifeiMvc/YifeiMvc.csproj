@@ -237,6 +237,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Logined.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -249,6 +250,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Yifei.Framework\Yifei.Framework.csproj">
+      <Project>{94600DEE-9C5E-4705-971A-391EBFD5D9E2}</Project>
+      <Name>Yifei.Framework</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Yifei.Models\Yifei.Models.csproj">
       <Project>{205FABF3-5FCE-4844-8036-3294CE979FC7}</Project>
       <Name>Yifei.Models</Name>
