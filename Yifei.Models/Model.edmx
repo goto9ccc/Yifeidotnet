@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DSCSYSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DSCMA">
+          <Key>
+            <PropertyRef Name="MA001" />
+          </Key>
+          <Property Name="COMPANY" Type="char" MaxLength="10" />
+          <Property Name="CREATOR" Type="char" MaxLength="10" />
+          <Property Name="USR_GROUP" Type="char" MaxLength="10" />
+          <Property Name="CREATE_DATE" Type="char" MaxLength="17" />
+          <Property Name="MODIFIER" Type="char" MaxLength="10" />
+          <Property Name="MODI_DATE" Type="char" MaxLength="17" />
+          <Property Name="FLAG" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="MA001" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MA002" Type="char" MaxLength="10" />
+          <Property Name="MA003" Type="char" MaxLength="32" />
+          <Property Name="MA004" Type="varchar" MaxLength="255" />
+          <Property Name="MA005" Type="char" MaxLength="1" />
+          <Property Name="MA006" Type="varchar" MaxLength="255" />
+          <Property Name="MA007" Type="varchar" MaxLength="20" />
+          <Property Name="MA008" Type="char" MaxLength="8" />
+          <Property Name="MA009" Type="char" MaxLength="8" />
+          <Property Name="UDF01" Type="varchar" MaxLength="255" />
+          <Property Name="UDF02" Type="varchar" MaxLength="255" />
+          <Property Name="UDF03" Type="varchar" MaxLength="255" />
+          <Property Name="UDF04" Type="varchar" MaxLength="255" />
+          <Property Name="UDF05" Type="varchar" MaxLength="255" />
+          <Property Name="UDF06" Type="varchar" MaxLength="255" />
+          <Property Name="UDF51" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="UDF52" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="UDF53" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="UDF54" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="UDF55" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="UDF56" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="UDF07" Type="varchar" MaxLength="255" />
+          <Property Name="UDF08" Type="varchar" MaxLength="255" />
+          <Property Name="UDF09" Type="varchar" MaxLength="255" />
+          <Property Name="UDF10" Type="varchar" MaxLength="255" />
+          <Property Name="UDF11" Type="varchar" MaxLength="255" />
+          <Property Name="UDF12" Type="varchar" MaxLength="255" />
+          <Property Name="UDF57" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="UDF58" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="UDF59" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="UDF60" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="UDF61" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="UDF62" Type="numeric" Precision="16" Scale="6" />
+        </EntityType>
+        <EntityContainer Name="DSCSYSModelStoreContainer">
+          <EntitySet Name="DSCMA" EntityType="Self.DSCMA" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DSCSYSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DSCMA">
+          <Key>
+            <PropertyRef Name="MA001" />
+          </Key>
+          <Property Name="COMPANY" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="CREATOR" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="USR_GROUP" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="CREATE_DATE" Type="String" MaxLength="17" FixedLength="true" Unicode="false" />
+          <Property Name="MODIFIER" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MODI_DATE" Type="String" MaxLength="17" FixedLength="true" Unicode="false" />
+          <Property Name="FLAG" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="MA001" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MA002" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MA003" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+          <Property Name="MA004" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MA005" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="MA006" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MA007" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MA008" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="MA009" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="UDF01" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UDF02" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UDF03" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UDF04" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UDF05" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UDF06" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UDF51" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="UDF52" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="UDF53" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="UDF54" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="UDF55" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="UDF56" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="UDF07" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UDF08" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UDF09" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UDF10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UDF11" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UDF12" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UDF57" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="UDF58" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="UDF59" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="UDF60" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="UDF61" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="UDF62" Type="Decimal" Precision="16" Scale="6" />
+        </EntityType>
+        <EntityContainer Name="DSCSYSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DSCMA" EntityType="Self.DSCMA" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DSCSYSModelStoreContainer" CdmEntityContainer="DSCSYSEntities">
+          <EntitySetMapping Name="DSCMA">
+            <EntityTypeMapping TypeName="DSCSYSModel.DSCMA">
+              <MappingFragment StoreEntitySet="DSCMA">
+                <ScalarProperty Name="COMPANY" ColumnName="COMPANY" />
+                <ScalarProperty Name="CREATOR" ColumnName="CREATOR" />
+                <ScalarProperty Name="USR_GROUP" ColumnName="USR_GROUP" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="MODIFIER" ColumnName="MODIFIER" />
+                <ScalarProperty Name="MODI_DATE" ColumnName="MODI_DATE" />
+                <ScalarProperty Name="FLAG" ColumnName="FLAG" />
+                <ScalarProperty Name="MA001" ColumnName="MA001" />
+                <ScalarProperty Name="MA002" ColumnName="MA002" />
+                <ScalarProperty Name="MA003" ColumnName="MA003" />
+                <ScalarProperty Name="MA004" ColumnName="MA004" />
+                <ScalarProperty Name="MA005" ColumnName="MA005" />
+                <ScalarProperty Name="MA006" ColumnName="MA006" />
+                <ScalarProperty Name="MA007" ColumnName="MA007" />
+                <ScalarProperty Name="MA008" ColumnName="MA008" />
+                <ScalarProperty Name="MA009" ColumnName="MA009" />
+                <ScalarProperty Name="UDF01" ColumnName="UDF01" />
+                <ScalarProperty Name="UDF02" ColumnName="UDF02" />
+                <ScalarProperty Name="UDF03" ColumnName="UDF03" />
+                <ScalarProperty Name="UDF04" ColumnName="UDF04" />
+                <ScalarProperty Name="UDF05" ColumnName="UDF05" />
+                <ScalarProperty Name="UDF06" ColumnName="UDF06" />
+                <ScalarProperty Name="UDF51" ColumnName="UDF51" />
+                <ScalarProperty Name="UDF52" ColumnName="UDF52" />
+                <ScalarProperty Name="UDF53" ColumnName="UDF53" />
+                <ScalarProperty Name="UDF54" ColumnName="UDF54" />
+                <ScalarProperty Name="UDF55" ColumnName="UDF55" />
+                <ScalarProperty Name="UDF56" ColumnName="UDF56" />
+                <ScalarProperty Name="UDF07" ColumnName="UDF07" />
+                <ScalarProperty Name="UDF08" ColumnName="UDF08" />
+                <ScalarProperty Name="UDF09" ColumnName="UDF09" />
+                <ScalarProperty Name="UDF10" ColumnName="UDF10" />
+                <ScalarProperty Name="UDF11" ColumnName="UDF11" />
+                <ScalarProperty Name="UDF12" ColumnName="UDF12" />
+                <ScalarProperty Name="UDF57" ColumnName="UDF57" />
+                <ScalarProperty Name="UDF58" ColumnName="UDF58" />
+                <ScalarProperty Name="UDF59" ColumnName="UDF59" />
+                <ScalarProperty Name="UDF60" ColumnName="UDF60" />
+                <ScalarProperty Name="UDF61" ColumnName="UDF61" />
+                <ScalarProperty Name="UDF62" ColumnName="UDF62" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

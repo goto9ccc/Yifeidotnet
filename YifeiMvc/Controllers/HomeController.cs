@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Yifei.Services;
 
 namespace YifeiMvc.Controllers
 {
@@ -16,7 +17,7 @@ namespace YifeiMvc.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
+            BaseService.Test();
             return View();
         }
 
