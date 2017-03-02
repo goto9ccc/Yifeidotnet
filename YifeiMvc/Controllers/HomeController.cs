@@ -17,7 +17,6 @@ namespace YifeiMvc.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-            BaseService.Test();
             return View();
         }
 
