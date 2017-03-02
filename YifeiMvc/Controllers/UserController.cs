@@ -5,11 +5,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Yifei.Framework;
+using Yifei.Framework.Common;
 using Yifei.Services.User;
 
 namespace YifeiMvc.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         [Dependency]
         public UserService userService { get; set; }

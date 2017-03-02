@@ -6,12 +6,13 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using Yifei.Framework.Common;
 using Yifei.Framework.Exceptions;
 
 namespace YifeiMvc.Controllers.Services
 {
     [RoutePrefix("Service/file")]
-    public class FileController : ApiController
+    public class FileController : BaseApiController
     {
 
         [Route("upload")]
