@@ -9,7 +9,9 @@ using System.Web.Http;
 using Yifei.Framework.Common;
 using Yifei.Framework.Exceptions;
 using Yifei.Framework.Utility;
-
+/// <summary>
+/// 验证码服务
+/// </summary>
 namespace YifeiMvc.Controllers.Services
 {
 

@@ -14,6 +14,10 @@ using Yifei.Framework.Exceptions;
 namespace Yifei.Framework.Filters
 {
 
+
+    /// <summary>
+    /// 异常过滤器
+    /// </summary>
     public class ApiExceptionFilter : IExceptionFilter
     {
 

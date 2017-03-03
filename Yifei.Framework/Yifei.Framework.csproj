@@ -92,12 +92,18 @@
     <Compile Include="Exceptions\ParameterException.cs" />
     <Compile Include="Exceptions\PermissionException.cs" />
     <Compile Include="Filters\ApiExceptionFilter.cs" />
+    <Compile Include="Filters\WebActionFilterAttribute.cs" />
+    <Compile Include="Logger\FileLogWriter.cs" />
+    <Compile Include="Logger\ILogWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\ValidateCode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Message\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
