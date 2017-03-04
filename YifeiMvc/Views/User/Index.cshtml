@@ -1,14 +1,44 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    Layout = null;
 }
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>易飞PLUS-登录</title>
 
-<h2>Index</h2>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/css/signin.css" rel="stylesheet">
 
-<form method="post">
-    <input type="text" name="username" value="" />
-    <input type="password" name="password" value="" />
-    <input type="submit" name="tj" value="提交" />
+</head>
 
-</form>
+<body>
+
+    <div class="signin">
+        <div class="signin-head"><img src="~/Content/images/user.png" alt="" class="img-circle"></div>
+        <form class="form-signin" role="form" id="login_form" method="post">
+            <input name="username" type="text" class="form-control" placeholder="用户名" required autofocus />
+            <input name="password" type="password" class="form-control" placeholder="密码"  />
+            <button id="login" class="btn btn-lg btn-warning btn-block">登录</button>
+            <label class="checkbox">
+                <input type="checkbox" value="remember-me"> 记住我
+            </label>
+        </form>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script>
+        $('#login').on('click', function () {
+            $.post('Service/User/Login',
+                $('#login_form').serialize(),
+                function (response) {
+                    if (response.status) {
+                        window.location.href = ('/Home');
+                    }                    
+                });
+        });
+    </script>
+</body>
+</html>
 
