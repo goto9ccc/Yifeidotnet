@@ -1,0 +1,85 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>登录</title>
+    <link href="~/Content/bootstrap.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/validate.css" type="text/css" rel="stylesheet" />
+</head>
+<body class="container">
+    <div id="formPanel" class="col-md-6 col-md-offset-3">
+        <div class="panel panel-primary" style="">
+
+            <div class="panel-heading">登录账户</div>
+            <form id="loginForm">
+                <div class="panel-body">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </div>
+                        <input type="text" name="UserName" id="UserName" value="" placeholder="请填写用户名" class="form-control required" minlength="2" />
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-asterisk"></span>
+                        </div>
+                        <input type="password" name="Password" id="Password" value="" placeholder="请输入密码" class="form-control"  />
+                    </div>
+                    <br />
+                    <input type="hidden" id="ReturnUrl" value="@(Request.QueryString["ReturnUrl"]??(Request.UrlReferrer+""))" />
+                    <div class="errorContainer"></div>
+                </div>
+                <div class="panel-footer text-right">
+                    <input type="submit" value="登录" class="btn btn-success" data-loading-text="正在登录,请稍后..." />
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var height = (window.screen.height - $("#formPanel").height()) / 3;
+            $("#formPanel").animate({ top: height });
+            $("#loginForm").validate({
+                submitHandler: function (form) {
+                    $(":submit").button("loading");
+                    $.post("/Account/Login/?rnd=" + Math.random(), $(form).serialize(), function (r) {
+                        if (r.Status == 200) {
+                            if ($("#ReturnUrl").val() == "")
+                                window.location.href = "/";
+                            else {
+                                window.location.href = $("#ReturnUrl").val();
+                            }
+                        } else {
+                            $(":submit").button("reset");
+                            var label = $("<label></label>");
+                            label.addClass("error server-error").text(r.Message);
+                            $(".errorContainer").append(label);
+                            $(".errorContainer").show();
+                            setTimeout(function (tag) {
+                                $(tag).animate({ height: 0 }, "normal", "swing", function (a, b, c, d) {
+                                    $(tag).remove();
+                                    $(".errorContainer").hide();
+                                });
+                            }, 5 * 1000, label);
+                        }
+                    });
+                }
+                , errorLabelContainer: ".errorContainer"
+                , messages: {
+                    UserName: { required: "请填写登录名", minlength: "登录名最少 4 个字符" }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

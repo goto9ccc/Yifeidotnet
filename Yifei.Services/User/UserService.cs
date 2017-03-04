@@ -67,6 +67,26 @@ namespace Yifei.Services.User
         }
 
 
+        /// <summary>
+        /// 专给OAUTH用的，不想引用注入框架了
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public DSCMA GetUser(string username, string password)
+        {
+            using (dbContext = new DSCSYSEntities())
+            {
+                string pwd = Encode(EnUser(username.ToCharArray()),
+                    password.ToCharArray());
+                DSCMA dscma = dbContext.DSCMA.Where(o => o.MA001.Equals(username)
+                 && o.MA003.Equals(pwd))
+                    .FirstOrDefault();
+                return dscma;
+            }
+        }
+
+
         public bool Login(string username, string password)
         {
             string pwd = Encode(EnUser(username.ToCharArray()),

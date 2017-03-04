@@ -1,0 +1,34 @@
+﻿﻿@using System.Security.Claims
+@using System.Web
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "授权";
+    var authentication = Context.GetOwinContext().Authentication;
+    var ticket = authentication.AuthenticateAsync("Application").Result;
+    var identity = ticket != null ? ticket.Identity : null;
+    var scopes = (Request.QueryString.Get("scope") ?? "").Split(' ');
+}
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">第三方应用授权</div>
+            <form method="POST">
+                <div class="panel-body">
+                    <p>尊敬的 </p>
+                    <p>一个第三方应用想要获取您的授权</p>
+                    <ul>
+                        @foreach (var scope in scopes)
+                        {
+                            <li>@scope</li>
+                        }
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <input type="submit" name="submit.Grant" value="同意" class="btn btn-success" />
+                    <input type="submit" name="submit.Login" value="用其他账号登录" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

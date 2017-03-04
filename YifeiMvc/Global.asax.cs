@@ -27,5 +27,10 @@ namespace YifeiMvc
         {
             HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
         }
+
+        protected void Application_BeginRequest()
+        {
+            //这里可以写日志
+        }
     }
 }

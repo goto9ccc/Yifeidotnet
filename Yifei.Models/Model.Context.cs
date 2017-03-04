@@ -26,5 +26,7 @@ namespace Yifei.Models
         }
     
         public virtual DbSet<DSCMA> DSCMA { get; set; }
+        public virtual DbSet<YFPLUS_Client> YFPLUS_Client { get; set; }
+        public virtual DbSet<YFPLUS_RefreshToken> YFPLUS_RefreshToken { get; set; }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DSCSYSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DSCSYSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="DSCMA">
           <Key>
             <PropertyRef Name="MA001" />
@@ -50,11 +50,33 @@
           <Property Name="UDF61" Type="numeric" Precision="16" Scale="6" />
           <Property Name="UDF62" Type="numeric" Precision="16" Scale="6" />
         </EntityType>
+        <EntityType Name="YFPLUS_Client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" />
+          <Property Name="ClientIdentify" Type="varchar" MaxLength="100" />
+          <Property Name="ClientSecret" Type="varchar" MaxLength="100" />
+          <Property Name="RedirectUrl" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="YFPLUS_RefreshToken">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ClientID" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="IssuedUtc" Type="datetime" Nullable="false" />
+          <Property Name="ExpiresUtc" Type="datetime" Nullable="false" />
+          <Property Name="ProtectedTicket" Type="varchar" MaxLength="4000" />
+        </EntityType>
         <EntityContainer Name="DSCSYSModelStoreContainer">
           <EntitySet Name="DSCMA" EntityType="Self.DSCMA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YFPLUS_Client" EntityType="Self.YFPLUS_Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YFPLUS_RefreshToken" EntityType="Self.YFPLUS_RefreshToken" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DSCSYSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -105,7 +127,30 @@
         </EntityType>
         <EntityContainer Name="DSCSYSEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="DSCMA" EntityType="Self.DSCMA" />
+          <EntitySet Name="YFPLUS_Client" EntityType="DSCSYSModel.YFPLUS_Client" />
+          <EntitySet Name="YFPLUS_RefreshToken" EntityType="DSCSYSModel.YFPLUS_RefreshToken" />
         </EntityContainer>
+        <EntityType Name="YFPLUS_Client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ClientIdentify" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ClientSecret" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RedirectUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="YFPLUS_RefreshToken">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ClientID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="IssuedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpiresUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ProtectedTicket" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -155,6 +200,29 @@
                 <ScalarProperty Name="UDF60" ColumnName="UDF60" />
                 <ScalarProperty Name="UDF61" ColumnName="UDF61" />
                 <ScalarProperty Name="UDF62" ColumnName="UDF62" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YFPLUS_Client">
+            <EntityTypeMapping TypeName="DSCSYSModel.YFPLUS_Client">
+              <MappingFragment StoreEntitySet="YFPLUS_Client">
+                <ScalarProperty Name="RedirectUrl" ColumnName="RedirectUrl" />
+                <ScalarProperty Name="ClientSecret" ColumnName="ClientSecret" />
+                <ScalarProperty Name="ClientIdentify" ColumnName="ClientIdentify" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YFPLUS_RefreshToken">
+            <EntityTypeMapping TypeName="DSCSYSModel.YFPLUS_RefreshToken">
+              <MappingFragment StoreEntitySet="YFPLUS_RefreshToken">
+                <ScalarProperty Name="ProtectedTicket" ColumnName="ProtectedTicket" />
+                <ScalarProperty Name="ExpiresUtc" ColumnName="ExpiresUtc" />
+                <ScalarProperty Name="IssuedUtc" ColumnName="IssuedUtc" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,0 +1,80 @@
+﻿@model Yifei.Models.YFPLUS_Client
+@{
+    ViewBag.Title = "编辑客户端信息";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/jquery.validate.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#saveForm").validate({
+                submitHandler: function (form) {
+                    $(":submit").button("loading");
+                    $.post("/Client/Save/?rnd=" + Math.random(), $(form).serialize(), function (r) {
+                        if (r.Status == 200) {
+                            window.location.href = "/Client/Index/?rnd=" + Math.random();
+                        } else {
+                            $(":submit").button("reset");
+                            alert(r.Message);
+                        }
+                    });
+                }, errorLabelContainer: ".errorContainer"
+                , messages: {
+                    Name: { required: "请填写客户端名称" },
+                    RedirectUrl: { url: "请填写正确的 URL ！请以 http:// 或 https:// 开头" }
+                }
+            });
+        });
+    </script>
+}
+
+<br />
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">编辑客户端信息</div>
+            <form id="saveForm">
+                <div class="panel-body">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            客户端名称
+                        </div>
+                        @Html.TextBoxFor(s => s.Name, new { @class = "required form-control", maxlength = 30 })
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            回调地址
+                        </div>
+                        @Html.TextBoxFor(s => s.RedirectUrl, new { @class = "form-control", maxlength = 500 })
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            ClientID
+                        </div>
+                        <input type="text" class="form-control" value="@Model.ClientIdentify" />
+
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            ClientSecret
+                        </div>
+                        <input type="text" class="form-control" value="@Model.ClientSecret" />
+
+                    </div>
+                    <br />
+                    <div class="errorContainer"></div>
+                </div>
+                <div class="panel-footer text-right">
+                    <a href="/Client/Index">返回列表</a>&nbsp;&nbsp;
+                    <input type="submit" value="保存" class="btn btn-primary btn-sm" data-loading-text="正在保存，请稍后..." />
+                </div>
+                @Html.HiddenFor(s => s.ClientIdentify)
+                @Html.HiddenFor(s => s.ClientSecret)
+                @Html.HiddenFor(s => s.ID)
+            </form>
+        </div>
+    </div>
+</div>
