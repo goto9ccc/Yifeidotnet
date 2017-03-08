@@ -1,70 +1,8 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<div class="col-lg-12">
-    <script id="memo" name="memo" style="height:200px;" type="text/plain">
-      
-</script>
-</div>
+<h2>Contact</h2>
 
-<div>
-
-    <img class="code-image" alt="" src="~/Service/verifycode/build?width=120&height=32&fontsize=18&code=88">
-
-</div>
-
-<div>
-    <div id="main" style="width: 600px;height:400px;">
-
-    </div>
-</div>
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
-
-
-
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
-
-@section scripts{
-    <script type="text/javascript" src="~/Scripts/ueditor/ueditor.config.js"></script>
-    <script type="text/javascript" src="~/Scripts/ueditor/ueditor.all.js"></script>
-<script type="text/javascript" src="~/Scripts/echarts/echarts.min.js"></script>
- <script>
-     var ue = UE.getEditor('memo');
-     var myChart = echarts.init(document.getElementById('main'));
-
-     // 指定图表的配置项和数据
-     var option = {
-         title: {
-             text: 'ECharts 入门示例'
-         },
-         tooltip: {},
-         legend: {
-             data: ['销量']
-         },
-         xAxis: {
-             data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-         },
-         yAxis: {},
-         series: [{
-             name: '销量',
-             type: 'bar',
-             data: [5, 20, 36, 10, 10, 20]
-         }]
-     };
-
-     // 使用刚指定的配置项和数据显示图表。
-     myChart.setOption(option);
-
-    </script>
-    }

@@ -40,11 +40,7 @@ namespace YifeiMvc.Controllers
         }
 
 
-        [Auth]
-        public ActionResult Logined()
-        {
-            return View();
-        }
+
 
     }
 }
