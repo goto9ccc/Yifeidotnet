@@ -204,6 +204,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\Login.css" />
+    <Content Include="Content\images\login\bg.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -505,6 +507,7 @@
     <Content Include="Scripts\ueditor\ueditor.config.js" />
     <Content Include="Scripts\ueditor\ueditor.parse.js" />
     <Content Include="Scripts\ueditor\ueditor.parse.min.js" />
+    <Content Include="Scripts\vue\vue.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

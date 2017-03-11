@@ -51,10 +51,10 @@
             $("#loginForm").validate({
                 submitHandler: function (form) {
                     $(":submit").button("loading");
-                    $.post("/Account/Login/?rnd=" + Math.random(), $(form).serialize(), function (r) {
+                    $.post("~/Account/Login/?rnd=" + Math.random(), $(form).serialize(), function (r) {
                         if (r.Status == 200) {
                             if ($("#ReturnUrl").val() == "")
-                                window.location.href = "/";
+                                window.location.href = "~/";
                             else {
                                 window.location.href = $("#ReturnUrl").val();
                             }

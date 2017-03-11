@@ -10,9 +10,89 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>用户登录</title>
+    <link href="~/Content/css/Login.css" rel="stylesheet" />
 </head>
 <body>
-    <div> 
+    <div class="container">
+        <div class="header">
+            <a href="#" class="logo_img"></a>
+            <div class="header_link">
+                <a href="#">手机版</a>
+            </div>
+        </div>
+        <div class="content">
+            <div id="downError" class="login_msg" style="display:none;">
+                <p><span class="login_msg_warning"></span>登录失败</p>
+            </div>
+            <div class="content_wrapper">
+                <div class="login_container" id="login" style="width: 334px; height: 387px; visibility: visible;">
+                    <div class="login" id="login">
+                        <div class="login_header">
+
+                        </div>
+                        <div class="loginTips">
+
+                        </div>
+                        <div class="login_form">
+                            <form id="loginform" autocomplete="off" style="margin: 0px">
+                                <div class="uinArea">
+                                    <div class="inputOuter">
+                                        <input type="text" name="username" placeholder="请输入系统用户名" class="inputstyle"  tabindex="1">
+                                    </div>
+                                </div>
+                                <div class="uinArea">
+                                    <div class="inputOuter">
+                                        <input type="password" name="password" placeholder="请输入密码" class="inputstyle" tabindex="2">
+                                    </div>
+                                </div>
+                                <div class="submit">
+                                    <a class="login_button" href="#" hidefocus="true">
+                                    <input type="button" tabindex="6" value="登 录" class="btn" id="login_button"> 
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="login_pictures">
+                    <div class="login_pictures_picture" style="background-image: url(''); background-image: url('@Url.Content("~/Content/images/login/bg.png")'); background-position: 56px 60px;"></div>
+                    <div class="login_pictures_txt">
+                        <p class="login_pictures_title">这里写个标题</p>
+                        <p>这里写几句话</p>
+                        <p>这里写几句话</p>
+                        <p>这里写几句话</p>
+                        <p>这里写几句话</p>         
+
+                   </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <a href="#" target="_blank">关于我们</a>
+            &nbsp;|&nbsp;
+            <a href="#" target="_blank">关于我们</a>
+            <span class="gray">©没有啥权利好拥有的.</span>
+        </div>
     </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script>
+        $(function () {
+            $('#login_button').click(function () {
+            
+                $.post('@Url.Content("~/service/user/Login")',
+                    $('#loginform').serialize,
+                    function (response) {
+                        if (response.status) {
+                            window.location.href = '@Url.Content("~/Home")';
+                        } else {
+                            alert('用户名或密码错误');
+                            
+                        }
+                    });
+            });
+        });
+    </script>
 </body>
 </html>

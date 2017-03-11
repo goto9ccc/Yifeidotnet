@@ -14,7 +14,7 @@ namespace YifeiMvc.Controllers.Services
 
         [Route("Login")]
         [HttpPost]
-        public object Index(string username, string password)
+        public object Login(string username, string password)
         {
             bool status = false;
             string msg = "登录失败";
