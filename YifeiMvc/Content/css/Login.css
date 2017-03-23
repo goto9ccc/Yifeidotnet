@@ -198,3 +198,18 @@ a {
     border: none;
     font-size: 18px;
 }
+
+.icon-user {
+    background: url(/Content/img/input-email.png?06f45af4) no-repeat 50%;
+    float:left;
+    height:68px;
+    width:68px;
+}
+
+.icon-password {
+    background: url(/Content/img/input-password.png?0308bc60) no-repeat 50%;
+    float: left;
+    height: 68px;
+    width: 68px;
+}
+}

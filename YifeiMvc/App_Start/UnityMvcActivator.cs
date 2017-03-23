@@ -1,9 +1,6 @@
+using Microsoft.Practices.Unity.Mvc;
 using System.Linq;
 using System.Web.Mvc;
-using Microsoft.Practices.Unity.Mvc;
-using Microsoft.Practices.Unity;
-using Yifei.Services.User;
-using Yifei.Models;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(YifeiMvc.App_Start.UnityWebActivator), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(YifeiMvc.App_Start.UnityWebActivator), "Shutdown")]
@@ -17,9 +14,7 @@ namespace YifeiMvc.App_Start
         public static void Start() 
         {
             var container = UnityConfig.GetConfiguredContainer();
-            //◊¢≤·¿‡–Õ
-            container.RegisterType<UserService>(new PerRequestLifetimeManager());
-            container.RegisterType<DSCSYSEntities>(new PerRequestLifetimeManager());
+
             FilterProviders.Providers.Remove(FilterProviders.Providers.OfType<FilterAttributeFilterProvider>().First());
             FilterProviders.Providers.Add(new UnityFilterAttributeFilterProvider(container));
 
