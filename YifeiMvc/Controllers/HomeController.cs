@@ -4,7 +4,7 @@ using Yifei.Framework.Common;
 
 namespace YifeiMvc.Controllers
 {
-    [Auth]
+    //[Auth]
     public class HomeController : BaseController
     {
         
@@ -21,6 +21,13 @@ namespace YifeiMvc.Controllers
         public ActionResult Contact()
         {
 
+            return View();
+        }
+
+        [ChildActionOnly]
+        public ActionResult Navbar()
+        {
+            ViewBag.NavBar = "";
             return View();
         }
     }
