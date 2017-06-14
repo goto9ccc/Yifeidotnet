@@ -4,5 +4,38 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>About</h2>
 
+<div>
+
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div>
+</div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $.jgrid.defaults.width = $(window).width() - 350;
+            $("#jqGrid").jqGrid({
+                url: 'http://trirand.com/blog/phpjqgrid/examples/jsonp/getjsonp.php?callback=?&qwery=longorders',
+                mtype: "GET",
+                styleUI: 'Bootstrap',
+                datatype: "jsonp",
+                colModel: [
+                    { label: 'OrderID', name: 'OrderID', key: true, width: 75 },
+                    { label: 'Customer ID', name: 'CustomerID', width: 300 },
+                    { label: 'Order Date', name: 'OrderDate', width: 300 },
+                    { label: 'Freight', name: 'Freight', width: 300 },
+                    { label: 'Ship Name', name: 'ShipName', width: 300 }
+                ],
+                viewrecords: true,
+                height: $(window).height() - 250,
+                
+                rowNum: 20,
+                pager: "#jqGridPager"
+            });
+        });
+    </script>
+ }
+@section css{
+<link href="~/Content/scripts/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/scripts/jqGrid/ui.jqgrid-bootstrap.css" rel="stylesheet" />
+}
