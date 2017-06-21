@@ -135,6 +135,13 @@ a {
     height: 50px;
     border-bottom: 1px solid #c0cdd9;
     background-color: #f9fbfe;
+    text-align:center;
+}
+.login_header_title {
+    line-height: 50px;
+    font-size: 24px;
+    font-weight: normal;
+    color: #6f95c8;
 }
 .loginTips {
     position: relative;
@@ -163,7 +170,7 @@ a {
     position: relative;
     left: 0px;
     border-radius: 3px;
-    width: 260px;
+    width: 224px;
     line-height: 18px;
     padding: 10px 12px 10px 10px;
     border: none;
@@ -200,16 +207,16 @@ a {
 }
 
 .icon-user {
-    background: url(/Content/img/input-email.png?06f45af4) no-repeat 50%;
-    float:left;
-    height:68px;
-    width:68px;
+    background: url(/Content/images/login/input-email.png) no-repeat 50%;
+    float: left;
+    height: 36px;
+    width: 36px;
 }
 
 .icon-password {
-    background: url(/Content/img/input-password.png?0308bc60) no-repeat 50%;
+    background: url(/Content/images/login/input-password.png) no-repeat 50%;
     float: left;
-    height: 68px;
-    width: 68px;
+    height: 36px;
+    width: 36px;
 }
 }
